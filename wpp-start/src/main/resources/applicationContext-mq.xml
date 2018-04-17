@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 显式配置listerer实现类 mtmq.sankuai.com-->
+    <!--<bean id="具体实现类" class=""></bean>-->
+
+    <!--<bean class="com.meituan.mafka.client.bean.MafkaConsumer" init-method="start" destroy-method="close">-->
+        <!--<property name="namespace" value="daocan"/>-->
+        <!--<property name="appkey" value="${app.name}"/>-->
+        <!--<property name="topic" value="resv.order.status.changed"/>-->
+        <!--<property name="group" value="resv.order.status.changed.i"/>-->
+        <!--<property name="listener" ref="具体实现类"/> -->
+        <!--<property name="className" value="java.lang.String"/>-->
+    <!--</bean>-->
+
+</beans>

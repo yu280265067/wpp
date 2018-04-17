@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycx.wpp.core.dao.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.ycx.wpp.core.domain.dataobject.TUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="poi_id" jdbcType="INTEGER" property="poiId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="point" jdbcType="VARCHAR" property="point" />
+    <result column="lat" jdbcType="REAL" property="lat" />
+    <result column="lon" jdbcType="REAL" property="lon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, poi_id, name, telephone, address, age, number, score, update_time, point, lat, 
+    lon
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ycx.wpp.core.domain.dataobject.TUser">
+    insert into t_user (id, poi_id, name, 
+      telephone, address, age, 
+      number, score, update_time, 
+      point, lat, lon)
+    values (#{id,jdbcType=INTEGER}, #{poiId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{number,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{point,jdbcType=VARCHAR}, #{lat,jdbcType=REAL}, #{lon,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ycx.wpp.core.domain.dataobject.TUser">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="poiId != null">
+        poi_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="point != null">
+        point,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="lon != null">
+        lon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="poiId != null">
+        #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=REAL},
+      </if>
+      <if test="lon != null">
+        #{lon,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ycx.wpp.core.domain.dataobject.TUser">
+    update t_user
+    <set>
+      <if test="poiId != null">
+        poi_id = #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="point != null">
+        point = #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=REAL},
+      </if>
+      <if test="lon != null">
+        lon = #{lon,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ycx.wpp.core.domain.dataobject.TUser">
+    update t_user
+    set poi_id = #{poiId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      point = #{point,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=REAL},
+      lon = #{lon,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
