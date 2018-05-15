@@ -32,6 +32,15 @@
             <!--</bean>-->
         <!--</property>-->
     <!--</bean>-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+                <value>classpath:/META-INF/app.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
 
     <context:property-placeholder location="classpath:META-INF/app.properties" ignore-unresolvable="true"/>
 
